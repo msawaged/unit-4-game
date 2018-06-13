@@ -1,8 +1,8 @@
 // user gets a random number between 19 and 12
 
-var trgNum = 0;
-var wins;
-var losses;
+var trgNum;
+var wins = 0;
+var losses = 0;
 var usrScore = 0;
 var crysOne;
 var crysTwo;
@@ -32,12 +32,43 @@ $(document).ready(function () {
         crysFour = Math.floor(Math.random() * (max - min + 1)) + min;
 
 
+        // $("#trgNum").text(trgNum);
+        function reset() {
+
+            trgNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+            crysOne = Math.floor(Math.random() * (max - min + 1)) + min;
+            crysTwo = Math.floor(Math.random() * (max - min + 1)) + min;
+            crysThree = Math.floor(Math.random() * (max - min + 1)) + min;
+            crysFour = Math.floor(Math.random() * (max - min + 1)) + min;
+            usrScore = 0;
+            // $(".trgNum").text(trgNum);
+
+
+        }
+
+
+        function winner() {
+
+            alert("you win");
+            wins++;
+            $(".wins").text("Wins: " + wins);
+            reset();
+        }
+
+        function loser() {
+
+            alert("you lose");
+            losses++;
+            $(".losses").text("Losses: " + losses);
+            reset();
+        }
 
 
 
+        
 
         // user gets target number between 19 and 120
-        $("#trgNum").text(trgNum);
+        // $("#trgNum").text(trgNum);
 
 
 
@@ -51,11 +82,17 @@ $(document).ready(function () {
 
             $("#userScore").text(usrScore);
 
-            if(usrScore === trgNum) {
+            if (usrScore == trgNum) {
 
-                wins++;
-                alert("you win!");  
+                winner();
+            } else if (usrScore > trgNum) {
+
+                loser();
+
+
             }
+
+
 
 
 
@@ -68,7 +105,18 @@ $(document).ready(function () {
             console.log(usrScore);
 
             $("#userScore").text(usrScore);
-            
+
+            if (usrScore == trgNum) {
+
+                winner();
+            } else if (usrScore > trgNum) {
+
+                loser();
+
+
+            }
+
+
 
 
 
@@ -84,6 +132,16 @@ $(document).ready(function () {
             $("#userScore").text(usrScore);
 
 
+            if (usrScore == trgNum) {
+
+                winner();
+            } else if (usrScore > trgNum) {
+
+                loser();
+
+
+            }
+
 
 
 
@@ -96,7 +154,15 @@ $(document).ready(function () {
 
             $("#userScore").text(usrScore);
 
+            if (usrScore == trgNum) {
 
+                winner();
+            } else if (usrScore > trgNum) {
+
+                loser();
+
+
+            }
 
 
 
@@ -104,7 +170,11 @@ $(document).ready(function () {
         // the values are totaled in a user section
         // if user goes over random number: loss goes up
         //if user guesses correct:wins go up
+
+
         // if user gets the correct amount game resets
+
+
 
         console.log(trgNum);
         console.log(crysOne);
@@ -114,6 +184,6 @@ $(document).ready(function () {
 
     }
 
-    gameStart();    
+    gameStart();
 
 });
