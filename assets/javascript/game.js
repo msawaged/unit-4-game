@@ -32,19 +32,24 @@ $(document).ready(function () {
         crysFour = Math.floor(Math.random() * (max - min + 1)) + min;
 
 
-        // $("#trgNum").text(trgNum);
+       
+
         function reset() {
 
             trgNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+
+            $("#trgNum").text(trgNum);
+
             crysOne = Math.floor(Math.random() * (max - min + 1)) + min;
             crysTwo = Math.floor(Math.random() * (max - min + 1)) + min;
             crysThree = Math.floor(Math.random() * (max - min + 1)) + min;
             crysFour = Math.floor(Math.random() * (max - min + 1)) + min;
             usrScore = 0;
-            // $(".trgNum").text(trgNum);
-
+            
 
         }
+
+        $("#trgNum").text(trgNum);
 
 
         function winner() {
@@ -53,6 +58,7 @@ $(document).ready(function () {
             wins++;
             $(".wins").text("Wins: " + wins);
             reset();
+            cslog();
         }
 
         function loser() {
@@ -61,11 +67,12 @@ $(document).ready(function () {
             losses++;
             $(".losses").text("Losses: " + losses);
             reset();
+           cslog();
         }
 
 
 
-        
+
 
         // user gets target number between 19 and 120
         // $("#trgNum").text(trgNum);
@@ -175,12 +182,20 @@ $(document).ready(function () {
         // if user gets the correct amount game resets
 
 
+        function cslog() {
+           console.warn(trgNum)
+            console.log(crysOne);
+            console.log(crysTwo);
+            console.log(crysThree);
+            console.log(crysFour);
+        }
 
-        console.log(trgNum);
+        console.warn(trgNum)
         console.log(crysOne);
         console.log(crysTwo);
         console.log(crysThree);
         console.log(crysFour);
+
 
     }
 
