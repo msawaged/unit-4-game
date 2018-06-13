@@ -32,7 +32,7 @@ $(document).ready(function () {
         crysFour = Math.floor(Math.random() * (max - min + 1)) + min;
 
 
-       
+
 
         function reset() {
 
@@ -45,7 +45,9 @@ $(document).ready(function () {
             crysThree = Math.floor(Math.random() * (max - min + 1)) + min;
             crysFour = Math.floor(Math.random() * (max - min + 1)) + min;
             usrScore = 0;
-            
+
+            $("#userScore").text(usrScore);
+
 
         }
 
@@ -67,15 +69,11 @@ $(document).ready(function () {
             losses++;
             $(".losses").text("Losses: " + losses);
             reset();
-           cslog();
+            cslog();
         }
 
 
 
-
-
-        // user gets target number between 19 and 120
-        // $("#trgNum").text(trgNum);
 
 
 
@@ -183,7 +181,7 @@ $(document).ready(function () {
 
 
         function cslog() {
-           console.warn(trgNum)
+            console.warn(trgNum)
             console.log(crysOne);
             console.log(crysTwo);
             console.log(crysThree);
